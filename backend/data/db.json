@@ -1,0 +1,32 @@
+{
+    "contacts": [
+        {
+            "lastname": "Arthur",
+            "firstname": "Morgan",
+            "address": "5 Tiffany Pine, East Liam, KA3 7PR",
+            "email": "a.morgan@white.net",
+            "telephone": "(0136) 648 9606"
+        },
+        {
+            "lastname": "Cooper",
+            "firstname": "Phoebe",
+            "address": "Studio 21t Justine Ports, Ellismouth, DT6 9BF",
+            "email": "cooper42@holmes.com",
+            "telephone": "+44(0)9888 803741"
+        },
+        {
+            "lastname": "Khan",
+            "firstname": "Karl",
+            "address": "081 Patricia Stream, Lewisberg, CT6 7HL",
+            "email": "kkhan22@mason.info",
+            "telephone": "07703 18754"
+        },
+        {
+            "lastname": "Patel",
+            "firstname": "David",
+            "address": "Studio 90f Knight Fords, Lake Dylan, ST14 5JJ",
+            "email": "d.patel@turner.com",
+            "telephone": "06902 44547"
+        }
+    ]
+}
