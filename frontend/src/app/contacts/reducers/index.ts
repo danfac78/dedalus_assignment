@@ -6,6 +6,7 @@ import {
   MetaReducer
 } from '@ngrx/store';
 
+export const contactsFeatureKey = 'contacts';
 
 export interface State {
 
