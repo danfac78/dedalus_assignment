@@ -10,7 +10,7 @@ import * as fromContacts from './reducers';
   declarations: [ContactsComponent],
   imports: [
     CommonModule,
-    StoreModule.forFeature(fromContacts.contactsFeatureKey, fromContacts.reducers)
+    StoreModule.forFeature(fromContacts.contactsFeatureKey, fromContacts.contactsReducer)
   ],
   exports: [
     ContactsComponent
