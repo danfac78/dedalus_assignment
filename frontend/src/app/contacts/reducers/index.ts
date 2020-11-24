@@ -24,16 +24,16 @@ export const initialContactsState: ContactsState = {
 
 export const contactsReducer = createReducer(
   initialContactsState,
-  on(
+  /* on(
     ContactActions.loadContacts,
     (state: ContactsState, action) => ({
-      contacts: [{
-        address: 'bau',
-        email: 'miao',
-        firstname: 'chirp',
-        lastname: 'mouuu',
-        telephone: 'snort'
-      }]
+      contacts: state.contacts
+    })
+  ), */
+  on(
+    ContactActions.loadedContacts,
+    (state: ContactsState, action) => ({
+      contacts: action.contacts
     })
   )
 );
