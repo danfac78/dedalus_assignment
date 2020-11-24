@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+
 import { AppState } from '../reducers';
-import { loadContacts } from './contacts.actions';
+import { ContactActions } from './actions-types';
+import { storedContacts } from './contacts.selectors';
+import { Contacts } from './core/contact.model';
 
 @Component({
   selector: 'app-contacts',
@@ -12,8 +16,11 @@ export class ContactsComponent implements OnInit {
 
   constructor(private store: Store<AppState>) { }
 
+  public contacts$!: Observable<Contacts>;
+
   ngOnInit(): void {
-    this.store.dispatch(loadContacts());
+    this.store.dispatch(ContactActions.loadContacts());
+    this.contacts$ = this.store.select(storedContacts);
   }
 
 }
