@@ -30,9 +30,9 @@ export const contactsReducer = createReducer(
       contacts: [{
         address: 'bau',
         email: 'miao',
-        firstName: 'chirp',
-        lastName: 'mouuu',
-        phone: 'snort'
+        firstname: 'chirp',
+        lastname: 'mouuu',
+        telephone: 'snort'
       }]
     })
   )
