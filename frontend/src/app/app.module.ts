@@ -12,6 +12,7 @@ import { reducers } from './reducers';
 import { environment } from '../environments/environment';
 import { ContactsModule } from './contacts/contacts.module';
 import { ContactEffects } from './contacts/contacts.effects';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,8 @@ import { ContactEffects } from './contacts/contacts.effects';
     AppRoutingModule,
     ContactsModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([]),
     StoreRouterConnectingModule.forRoot({

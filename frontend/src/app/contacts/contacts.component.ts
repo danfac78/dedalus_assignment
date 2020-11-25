@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { AppState } from '../reducers';
 import { ContactActions } from './actions-types';
 import { storedContacts } from './contacts.selectors';
-import { Contacts } from './core/contact.model';
+import { Contact, Contacts } from './core/contact.model';
 
 @Component({
   selector: 'app-contacts',
@@ -23,4 +23,7 @@ export class ContactsComponent implements OnInit {
     this.contacts$ = this.store.select(storedContacts);
   }
 
+  addContactToList(contact: Contact): void {
+    debugger;
+  }
 }

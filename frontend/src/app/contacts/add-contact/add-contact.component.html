@@ -1,0 +1,34 @@
+<div style="width: 500px">
+    <form [formGroup]="form" class="login-form">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="">First and last name</span>
+            </div>
+            <input type="text" class="form-control" formControlName="firstname">
+            <input type="text" class="form-control" formControlName="lastname">
+        </div>
+        
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="">Address</span>
+            </div>
+            <input type="text" class="form-control" formControlName="address">
+        </div>
+        
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="">Telephone</span>
+            </div>
+            <input type="text" class="form-control" formControlName="telephone">
+        </div>
+        
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="">Email address</span>
+            </div>
+            <input type="text" class="form-control" formControlName="email">
+        </div>
+
+        <button (click)="add()">Add</button>
+    </form>
+</div>
