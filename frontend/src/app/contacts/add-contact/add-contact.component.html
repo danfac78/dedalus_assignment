@@ -1,4 +1,4 @@
-<div style="width: 500px">
+<div>
     <form [formGroup]="form" class="login-form">
         <div class="input-group">
             <div class="input-group-prepend">
@@ -29,6 +29,6 @@
             <input type="text" class="form-control" formControlName="email">
         </div>
 
-        <button (click)="add()">Add</button>
+        <button (click)="add()" class="btn btn-primary btn-md btn-block">Add</button>
     </form>
 </div>
