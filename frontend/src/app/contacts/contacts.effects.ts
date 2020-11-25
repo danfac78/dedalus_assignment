@@ -23,4 +23,12 @@ export class ContactEffects {
         ),
         { dispatch: true }
     );
+
+    public readonly contactToAdd$ = createEffect(
+        () => this.actions$.pipe(
+            ofType(ContactActions.addContactToList),
+            map(contact => ContactActions.refreshListContent())
+        ),
+        { dispatch: true }
+    );
 }

@@ -24,6 +24,6 @@ export class ContactsComponent implements OnInit {
   }
 
   addContactToList(contact: Contact): void {
-    debugger;
+    this.store.dispatch(ContactActions.addContactToList({ contactToAdd: contact }));
   }
 }
