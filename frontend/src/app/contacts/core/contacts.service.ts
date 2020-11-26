@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { distinctUntilChanged } from 'rxjs/operators';
+import { distinctUntilChanged, map } from 'rxjs/operators';
 import { ContactsModule } from '../contacts.module';
-import { Contacts } from './contact.model';
+import { Contact, Contacts } from './contact.model';
 
 const serializedComparer = (a: Contacts, b: Contacts): boolean => JSON.stringify(a) !== JSON.stringify(b);
 
@@ -20,7 +20,8 @@ export class ContactsService {
 
   public getAllContacts(): Observable<Contacts> {
     return this.http.get<Contacts>(this.ENDPOINT).pipe(
-      distinctUntilChanged(serializedComparer)
+      distinctUntilChanged(serializedComparer),
+      map(cs => cs.map(c => new Contact(c)))
     );
   }
 }

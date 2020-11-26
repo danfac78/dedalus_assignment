@@ -35,7 +35,7 @@ export const contactsReducer = createReducer(
     ContactActions.addContactToList,
     (state: ContactsState, action) => ({
       ...state,
-      contacts: pushToArray([...state.contacts], action.contactToAdd)
+      contacts: pushToArray([...state.contacts], new Contact(action.contactToAdd))
     })
   )
 );
