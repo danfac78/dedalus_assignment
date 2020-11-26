@@ -9,3 +9,8 @@ export const storedContacts = createSelector(
     selectContactsState,
     contacts => contacts.contacts
 );
+
+export const selectedContact = createSelector(
+    selectContactsState,
+    contacts => contacts.selectedContact
+);

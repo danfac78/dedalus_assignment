@@ -8,11 +8,12 @@ import { ContactEffects } from './contacts.effects';
 import { ListComponent } from './list/list.component';
 import { AddContactComponent } from './add-contact/add-contact.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ContactDetailComponent } from './contact-detail/contact-detail.component';
 
 
 
 @NgModule({
-  declarations: [ContactsComponent, ListComponent, AddContactComponent],
+  declarations: [ContactsComponent, ListComponent, AddContactComponent, ContactDetailComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,

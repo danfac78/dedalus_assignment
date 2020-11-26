@@ -15,7 +15,8 @@ enum Actions {
     loaded = 'loaded',
     addToList = 'add contact to store',
     updateList = 'refresh contact list',
-    selectFromList = 'select the contact from the list'
+    selectFromList = 'select the contact from the list',
+    clearSelected = 'clear selected contact'
 }
 
 export const loadContacts = createAction(
@@ -39,4 +40,8 @@ export const refreshListContent = createAction(
 export const selectFromList = createAction(
     nameGetters.getContactListName(Actions.selectFromList),
     props<{ selectedContact: Contact }>()
+);
+
+export const clearSelected = createAction(
+    nameGetters.getContactListName(Actions.clearSelected)
 );

@@ -1,2 +1,3 @@
 <app-add-contact (formData)="addContactToList($event)"></app-add-contact>
 <app-list [contacts]="contacts$ | async"></app-list>
+<app-contact-detail *ngIf="selectedContact$ | async as sc" [contact]="sc"></app-contact-detail>
