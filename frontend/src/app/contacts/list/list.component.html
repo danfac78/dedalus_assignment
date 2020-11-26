@@ -6,7 +6,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let contact of contacts; let i = index" [attr.data-index]="i" [attr.data-contact]="contact">
+      <tr *ngFor="let contact of contacts; let i = index" [attr.data-index]="i" [attr.data-contact]="contact" [ngClass]="i === previousIndex ? 'bg-info text-light' : ''">
         <td>{{contact.firstname}}</td>
         <td>{{contact.lastname}}</td>
       </tr>

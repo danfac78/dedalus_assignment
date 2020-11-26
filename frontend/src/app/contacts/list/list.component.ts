@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { ContactActions } from '../actions-types';
-import { Contact, Contacts } from '../core/contact.model';
+import { Contact, Contacts, IContact } from '../core/contact.model';
 
 @Component({
   selector: 'app-list',
@@ -11,6 +11,8 @@ import { Contact, Contacts } from '../core/contact.model';
 export class ListComponent implements OnInit {
   @Input() public contacts!: Contacts | null;
   @Output() public selectedContactIndex = new EventEmitter<number>();
+
+  public previousIndex: number | null = null;
 
   constructor(private store: Store) { }
 
@@ -23,14 +25,19 @@ export class ListComponent implements OnInit {
       return;
     }
     const contact = tr.dataset.contact;
+    const index = Number(tr.dataset.index);
 
     if (contact === null || contact === undefined) {
       return;
     }
 
-    this.store.dispatch(ContactActions.selectFromList({ selectedContact: JSON.parse(contact) }));
-
-    // this.selectedContactIndex.emit(index);
+    if (this.previousIndex === index) {
+      this.store.dispatch(ContactActions.clearSelected());
+      this.previousIndex = null;
+    } else {
+      this.store.dispatch(ContactActions.selectFromList({ selectedContact: JSON.parse(contact) }));
+      this.previousIndex = index;
+    }
   }
 
 }
