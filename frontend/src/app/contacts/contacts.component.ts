@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
@@ -10,6 +10,7 @@ import { Contact, Contacts, IContact } from './core/contact.model';
 
 @Component({
   selector: 'app-contacts',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './contacts.component.html',
   styleUrls: ['./contacts.component.scss']
 })
