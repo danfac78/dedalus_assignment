@@ -105,8 +105,6 @@ describe('ListComponent', () => {
         })
       ];
 
-      const EXPECTED_CONTACT = component.contacts[1];
-
       fixture.detectChanges();
 
       // act
@@ -142,8 +140,6 @@ describe('ListComponent', () => {
           email: 'p.peterson@gmail.com'
         })
       ];
-
-      const EXPECTED_CONTACT = component.contacts[1];
 
       fixture.detectChanges();
 
