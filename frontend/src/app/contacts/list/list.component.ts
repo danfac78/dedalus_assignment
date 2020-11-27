@@ -10,7 +10,6 @@ import { Contact, Contacts, IContact } from '../core/contact.model';
 })
 export class ListComponent implements OnInit {
   @Input() public contacts!: Contacts | null;
-  @Output() public selectedContactIndex = new EventEmitter<number>();
 
   public previousIndex: number | null = null;
 
