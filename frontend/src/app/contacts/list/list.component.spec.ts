@@ -13,6 +13,7 @@ import { ListComponent } from './list.component';
 describe('ListComponent', () => {
   let component: ListComponent;
   let fixture: ComponentFixture<ListComponent>;
+  let store: Store<AppState>;
 
   type SELECTED_CONTACT_SHORTCUT = { contacts: { selectedContact: Contact } };
 
@@ -35,12 +36,21 @@ describe('ListComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ListComponent);
     component = fixture.componentInstance;
+    store = TestBed.inject(Store);
     fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  const expetationChecker = (e: Contact) => (c: AppState): void => {
+    expect((c as SELECTED_CONTACT_SHORTCUT).contacts.selectedContact.firstname).toEqual(e.firstname);
+    expect((c as SELECTED_CONTACT_SHORTCUT).contacts.selectedContact.lastname).toEqual(e.lastname);
+    expect((c as SELECTED_CONTACT_SHORTCUT).contacts.selectedContact.telephone).toEqual(e.telephone);
+    expect((c as SELECTED_CONTACT_SHORTCUT).contacts.selectedContact.address).toEqual(e.address);
+    expect((c as SELECTED_CONTACT_SHORTCUT).contacts.selectedContact.email).toEqual(e.email);
+  };
 
   const CONTACTS_DATA: Contact[] = [
     new Contact({
@@ -70,19 +80,12 @@ describe('ListComponent', () => {
       fixture.detectChanges();
 
       // act
-      const store: Store<AppState> = TestBed.inject(Store);
       const contactsTableFlat = fixture.debugElement.queryAllNodes(By.all());
       const clickedTableRows = contactsTableFlat.map(n => n.nativeNode).filter(n => n.localName === 'td');
       clickedTableRows[2].click();
 
       // assert
-      store.subscribe(c => {
-        expect((c as SELECTED_CONTACT_SHORTCUT).contacts.selectedContact.firstname).toEqual(EXPECTED_CONTACT.firstname);
-        expect((c as SELECTED_CONTACT_SHORTCUT).contacts.selectedContact.lastname).toEqual(EXPECTED_CONTACT.lastname);
-        expect((c as SELECTED_CONTACT_SHORTCUT).contacts.selectedContact.telephone).toEqual(EXPECTED_CONTACT.telephone);
-        expect((c as SELECTED_CONTACT_SHORTCUT).contacts.selectedContact.address).toEqual(EXPECTED_CONTACT.address);
-        expect((c as SELECTED_CONTACT_SHORTCUT).contacts.selectedContact.email).toEqual(EXPECTED_CONTACT.email);
-      });
+      store.subscribe(expetationChecker(EXPECTED_CONTACT));
     });
   });
 
@@ -97,7 +100,6 @@ describe('ListComponent', () => {
       fixture.detectChanges();
 
       // act
-      const store: Store<AppState> = TestBed.inject(Store);
       const contactsTableFlat = fixture.debugElement.queryAllNodes(By.all());
       const clickedTableRows: HTMLTableDataCellElement[] = contactsTableFlat.map(n => n.nativeNode).filter(n => n.localName === 'tr');
       clickedTableRows[0].click();
@@ -106,13 +108,7 @@ describe('ListComponent', () => {
       clickedTable.click();
 
       // assert
-      store.subscribe(c => {
-        expect((c as SELECTED_CONTACT_SHORTCUT).contacts.selectedContact.firstname).toEqual(EXPECTED_CONTACT.firstname);
-        expect((c as SELECTED_CONTACT_SHORTCUT).contacts.selectedContact.lastname).toEqual(EXPECTED_CONTACT.lastname);
-        expect((c as SELECTED_CONTACT_SHORTCUT).contacts.selectedContact.telephone).toEqual(EXPECTED_CONTACT.telephone);
-        expect((c as SELECTED_CONTACT_SHORTCUT).contacts.selectedContact.address).toEqual(EXPECTED_CONTACT.address);
-        expect((c as SELECTED_CONTACT_SHORTCUT).contacts.selectedContact.email).toEqual(EXPECTED_CONTACT.email);
-      });
+      store.subscribe(expetationChecker(EXPECTED_CONTACT));
     });
   });
 
@@ -127,7 +123,6 @@ describe('ListComponent', () => {
       fixture.detectChanges();
 
       // act
-      const store: Store<AppState> = TestBed.inject(Store);
       const contactsTableFlat = fixture.debugElement.queryAllNodes(By.all());
       const clickedTableRows: HTMLTableDataCellElement[] = contactsTableFlat.map(n => n.nativeNode).filter(n => n.localName === 'td');
       clickedTableRows[2].click();
@@ -136,13 +131,7 @@ describe('ListComponent', () => {
       clickedTable.click();
 
       // assert
-      store.subscribe(c => {
-        expect((c as SELECTED_CONTACT_SHORTCUT).contacts.selectedContact.firstname).toEqual(EXPECTED_CONTACT.firstname);
-        expect((c as SELECTED_CONTACT_SHORTCUT).contacts.selectedContact.lastname).toEqual(EXPECTED_CONTACT.lastname);
-        expect((c as SELECTED_CONTACT_SHORTCUT).contacts.selectedContact.telephone).toEqual(EXPECTED_CONTACT.telephone);
-        expect((c as SELECTED_CONTACT_SHORTCUT).contacts.selectedContact.address).toEqual(EXPECTED_CONTACT.address);
-        expect((c as SELECTED_CONTACT_SHORTCUT).contacts.selectedContact.email).toEqual(EXPECTED_CONTACT.email);
-      });
+      store.subscribe(expetationChecker(EXPECTED_CONTACT));
     });
   });
 });
